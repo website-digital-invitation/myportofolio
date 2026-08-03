@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Johan & Johana</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop>
+        <source src="ssstik.io_1785651083855.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button id="music-toggle" class="music-btn" aria-label="Toggle Music" style="display: none;">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- SECTION 1: COVER / SPLASH SCREEN OVERLAY -->
+    <div id="cover-overlay" class="cover-overlay">
+        <div class="cover-content">
+            <span class="sub-title">THE WEDDING OF</span>
+            <h1 class="couple-title">Johan & Johana</h1>
+            <p class="marga-subtitle">Simanjuntak & Sitanggang</p>
+            <div class="guest-box">
+                <p class="guest-label">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h3 id="guest-name" class="guest-name">Tamu Undangan</h3>
+                <p class="guest-note">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
+            </div>
+            <button id="btn-open-invitation" class="btn-primary">
+                <i class="fas fa-envelope-open-text"></i> Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main id="main-content">
+
+        <!-- SECTION 2: HERO SECTION & COUNTDOWN -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content animate-on-scroll slide-down">
+                <span class="badge">Walimatul 'Urs & Syukuran Pernikahan</span>
+                <h2 class="hero-names">Johan & Johana</h2>
+                <p class="wedding-date"><i class="far fa-calendar-alt"></i> Sabtu, 24 Oktober 2026</p>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <small>Hari</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <small>Jam</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <small>Menit</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <small>Detik</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SALAM & AYAT / PASU-PASU -->
+        <section id="quote" class="quote-section">
+            <div class="container animate-on-scroll slide-up">
+                <div class="quote-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="quote-text">
+                        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, 
+                        agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang..."
+                    </p>
+                    <span class="quote-source">(Q. Surah AR-RUM Ayat: 21)</span>
+                    <div class="batak-blessing">
+                        <p class="uapan-batak">"Torkis ma hamu, gabe jala horas hita sasude."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PROFIL MEMPELAI -->
+        <section id="couple" class="couple-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <span class="section-tag">Mempelai</span>
+                    <h2 class="section-title">Pasangan Pengantin</h2>
+                </div>
+
+                <div class="couple-grid">
+                    <!-- Mempelai Pria (Slide Left) -->
+                    <div class="couple-card animate-on-scroll slide-left">
+                        <div class="avatar-frame">
+                            <img src="pengantinpria.jpg" alt="Johan Simanjuntak" class="couple-img">
+                        </div>
+                        <h3>Johan Arifin Simanjuntak, S.T.</h3>
+                        <p class="marga-tag">Marga Simanjuntak (Situngkir)</p>
+                        <p class="parents-info">
+                            Putra Pertama dari:<br>
+                            <strong>Bpk. St. D. Simanjuntak</strong> &amp; <strong>Ibu N. br. Hutabarat</strong>
+                        </p>
+                        <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i> @johan_smj</a>
+                    </div>
+
+                    <div class="couple-divider">&amp;</div>
+
+                    <!-- Mempelai Wanita (Slide Right) -->
+                    <div class="couple-card animate-on-scroll slide-right">
+                        <div class="avatar-frame">
+                            <img src="pengantinwanita.jpg" alt="Johana Sitanggang" class="couple-img">
+                        </div>
+                        <h3>Johana Ruth br. Sitanggang,.</h3>
+                        <p class="marga-tag">Boru Sitanggang (Batuwaing)</p>
+                        <p class="parents-info">
+                            Putri Kedua dari:<br>
+                            <strong>Bpk. St. R. Sitanggang</strong> &amp; <strong>Ibu E. br. Manurung</strong>
+                        </p>
+                        <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i> @johana_stg</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: KISAH CINTA / OUR STORY -->
+        <section id="story" class="story-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <span class="section-tag">Perjalanan Kami</span>
+                    <h2 class="section-title">Kisah Cinta</h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item animate-on-scroll zoom-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">12 Maret 2021</span>
+                            <h4>Awal Pertemuan (A Parjolo Sahali)</h4>
+                            <p>Pertama kali saling mengenal saat kegiatan alumni kampus di Bandung. Komunikasi yang awalnya sekadar sapaan formal perlahan tumbuh menjadi persahabatan yang hangat.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll zoom-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">18 November 2023</span>
+                            <h4>Komitmen &amp; Marhusip</h4>
+                            <p>Dengan restu kedua keluarga besar, kami memutuskan melangkah ke jenjang yang lebih serius melalui prosesi perundingan awal adat Batak (Marhusip).</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll zoom-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">25 Mei 2026</span>
+                            <h4>Martumpol (Lamaran Resmi)</h4>
+                            <p>Melaksanakan ikatan janji nikah di hadapan gereja dan jemaat sebagai persiapan menuju pemberkatan pernikahan yang kudus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: DETAIL ACARA -->
+        <section id="events" class="events-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <span class="section-tag">Waktu &amp; Lokasi</span>
+                    <h2 class="section-title">Rangkaian Acara</h2>
+                </div>
+
+                <div class="events-grid">
+                    <div class="event-card animate-on-scroll slide-up">
+                        <div class="event-icon"><i class="fas fa-mosque"></i></div>
+                        <h3>Akad Pernikahan</h3>
+                        <div class="event-details">
+                            <p><i class="far fa-clock"></i> 09.00 WIB - 11.00 WIB</p>
+                            <p><i class="far fa-calendar-check"></i> Sabtu, 24 Oktober 2026</p>
+                            <p><i class="fas fa-map-marker-alt"></i> HKBP Balige Kota</p>
+                            <p class="event-address">Jl. Gereja No. 12, Balige, Toba, Sumatera Utara</p>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" class="btn-secondary"><i class="fas fa-directions"></i> Petunjuk Lokasi</a>
+                    </div>
+
+                    <div class="event-card animate-on-scroll slide-up">
+                        <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
+                        <h3>Resepsi &amp; Adat Batak</h3>
+                        <div class="event-details">
+                            <p><i class="far fa-clock"></i> 11.30 WIB - Selesai</p>
+                            <p><i class="far fa-calendar-check"></i> Sabtu, 24 Oktober 2026</p>
+                            <p><i class="fas fa-building"></i> Wisma Sopo Godang Balige</p>
+                            <p class="event-address">Jl. Sisingamangaraja No. 88, Balige</p>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" class="btn-secondary"><i class="fas fa-directions"></i> Petunjuk Lokasi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: GALERI FOTO -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <span class="section-tag">Momen Bahagia</span>
+                    <h2 class="section-title">Galeri Foto</h2>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item animate-on-scroll zoom-in" onclick="openLightbox('3796d665-fc91-4ea4-8cba-d30d1d837f8a.jpg')">
+                        <img src="3796d665-fc91-4ea4-8cba-d30d1d837f8a.jpg" alt="Gallery 1">
+                        <div class="gallery-hover"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item animate-on-scroll zoom-in" onclick="openLightbox('pengantinpria.jpg')">
+                        <img src="pengantinpria.jpg" alt="Gallery 2">
+                        <div class="gallery-hover"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item animate-on-scroll zoom-in" onclick="openLightbox('pengantinwanita.jpg')">
+                        <img src="pengantinwanita.jpg" alt="Gallery 3">
+                        <div class="gallery-hover"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item animate-on-scroll zoom-in" onclick="openLightbox('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=600&q=80" alt="Gallery 4">
+                        <div class="gallery-hover"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="Full Preview">
+        </div>
+
+        <!-- SECTION 8: TANDA KASIH / DIGITAL ENVELOPE -->
+        <section id="gift" class="gift-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <span class="section-tag">Ungkapan Kasih</span>
+                    <h2 class="section-title">Tanda Kasih (Amplop Digital)</h2>
+                    <p class="section-desc">Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberikan tanda kasih, dapat melalui rekening berikut:</p>
+                </div>
+
+                <div class="gift-grid animate-on-scroll slide-left">
+                    <div class="bank-card">
+                        <div class="bank-logo">BCA</div>
+                        <p class="account-number" id="rekening-bca">1234567890</p>
+                        <p class="account-name">a.n. Johan Simanjuntak</p>
+                        <button class="btn-copy" onclick="copyText('rekening-bca')"><i class="far fa-copy"></i> Salin Rekening</button>
+                    </div>
+
+                    <div class="bank-card">
+                        <div class="bank-logo">MANDIRI</div>
+                        <p class="account-number" id="rekening-mandiri">0987654321</p>
+                        <p class="account-name">a.n. Johana Sitanggang</p>
+                        <button class="btn-copy" onclick="copyText('rekening-mandiri')"><i class="far fa-copy"></i> Salin Rekening</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: GATED RSVP & UCAPAN -->
+        <section id="rsvp" class="rsvp-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <span class="section-tag">Kehadiran &amp; Doa</span>
+                    <h2 class="section-title">RSVP &amp; Ucapan Selamat</h2>
+                </div>
+
+                <!-- FORM RSVP -->
+                <div class="rsvp-card animate-on-scroll slide-right">
+                    <form id="rsvp-form" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="form-name">Nama Lengkap</label>
+                            <input type="text" id="form-name" required placeholder="Contoh: St. B. Hutagalung &amp; Boru">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-status">Konfirmasi Kehadiran</label>
+                            <select id="form-status" required>
+                                <option value="">-- Pilih Kehadiran --</option>
+                                <option value="Hadir">Hadir di Acara</option>
+                                <option value="Tidak Hadir">Tidak Dapat Hadir</option>
+                                <option value="Ragu-ragu">Masih Ragu</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-message">Ucapan &amp; Doa Restu</label>
+                            <textarea id="form-message" rows="4" required placeholder="Tuliskan ucapan dan doa pasu-pasu untuk kedua pengantin..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-full"><i class="fas fa-paper-plane"></i> Kirim Ucapan &amp; Buka Daftar Doa</button>
+                    </form>
+                </div>
+
+                <!-- GATED WISHES FEED (Terkunci Sebelum Mengisi Form) -->
+                <div id="gated-wishes-container" class="gated-container">
+                    <div id="gated-lock-message" class="lock-box animate-on-scroll fade-in">
+                        <i class="fas fa-lock lock-icon"></i>
+                        <h4>Daftar Ucapan Masih Terkunci</h4>
+                        <p>Silakan isi formulir RSVP dan doa di atas terlebih dahulu untuk melihat nama-nama tamu &amp; ucapan yang sudah masuk.</p>
+                    </div>
+
+                    <div id="wishes-feed" class="wishes-feed" style="display: none;">
+                        <h3 class="wishes-title"><i class="fas fa-comments"></i> Doa Restu Dari Kerabat &amp; Sahabat</h3>
+                        <div id="wishes-list" class="wishes-list">
+                            <!-- Injected by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 10: PENUTUP / FOOTER -->
+        <section id="footer" class="footer-section">
+            <div class="container animate-on-scroll slide-up">
+                <h3 class="footer-thanks">Jazakumullahu Khairan & Terima Kasih</h3>
+                <p class="footer-desc">Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i sekalian, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
+                
+                <div class="suhut-box">
+                    <p class="suhut-title">Kami Yang Berbahagia / Suhut &amp; Keluarga Besar:</p>
+                    <p><strong>Keluarga Bpk. St. D. Simanjuntak / br. Hutabarat</strong> (Balige)</p>
+                    <p><strong>Keluarga Bpk. St. R. Sitanggang / br. Manurung</strong> (Medan)</p>
+                </div>
+
+                <div class="copyright">
+                    <p>&copy; 2026 Wedding Digital Invitation &amp; Aesthetic Batak Culture.</p>
+                   <p> Developed by: <b>Rahmadsyah Siregar.</b> </p>
+                    <p>WhatsApp: 0821-6275-7915 | Email: rahmatsyahsiregar80@gmail.com</p>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Sample data awal ucapan
+        let wishesData = [
+            { name: "Bpk. St. H. Napitupulu & Boru", status: "Hadir", message: "Selamat atas pernikahan Ananda Johan dan Johana. Anggiat gabe keluarga na marhahamaranggi jala gabe dongan saramat." },
+            { name: "Rian Purba (Sahabat Kampus)", status: "Hadir", message: "Happy Wedding bro Johan & Johana! Lancar-lancar acaranya sampai hari H ya, Gen Z Batak pride!" },
+            { name: "Dr. Maria br. Sinaga", status: "Hadir", message: "Selamat memasuki bahtera rumah tangga baru. Tuhan memberkati keluarga yang baru dibentuk ini." }
+            
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guest = urlParams.get('to') || urlParams.get('n');
+            if (guest) {
+                document.getElementById('guest-name').innerText = guest;
+            }
+
+            // Jika pernah isi form sebelumnya
+            if (localStorage.getItem('invitation_submitted') === 'true') {
+                unlockWishesFeed();
+            }
+        });
+
+        // Cover Open Button
+        const btnOpen = document.getElementById('btn-open-invitation');
+        const coverOverlay = document.getElementById('cover-overlay');
+        const bgMusic = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        btnOpen.addEventListener('click', () => {
+            coverOverlay.classList.add('hide');
+            document.body.classList.remove('locked');
+            
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicBtn.style.display = 'flex';
+            }).catch(e => console.log('Autoplay audio diblokir browser: ', e));
+
+            initScrollAnimations();
+            startCountdown();
+        });
+
+        // Toggle Music
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.classList.add('paused');
+            } else {
+                bgMusic.play();
+                musicBtn.classList.remove('paused');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Scroll Animation Observer (Slide In, Zoom, Fade)
+        function initScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            animatedElements.forEach(el => observer.observe(el));
+        }
+
+        // Countdown Timer
+        function startCountdown() {
+            const targetDate = new Date('December 31, 2026 09:00:00').getTime();
+            
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const difference = targetDate - now;
+
+                if (difference < 0) {
+                    clearInterval(timer);
+                    document.querySelector('.countdown-container').innerHTML = '<h3>Acara Telah Berlangsung</h3>';
+                    return;
+                }
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            }, 1000);
+        }
+
+        // Lightbox
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            modal.classList.add('show');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('show');
+        }
+
+        // Copy Rekening
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Nomor rekening berhasil disalin: ' + text);
+            });
+        }
+
+        // Gated RSVP Form Logic
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const status = document.getElementById('form-status').value;
+            const message = document.getElementById('form-message').value;
+
+            wishesData.unshift({ name, status, message });
+            localStorage.setItem('invitation_submitted', 'true');
+            document.getElementById('rsvp-form').reset();
+
+            unlockWishesFeed();
+            alert('Terima kasih atas doa dan konfirmasinya! Daftar ucapan kini terbuka.');
+        }
+
+        function unlockWishesFeed() {
+            document.getElementById('gated-lock-message').style.display = 'none';
+            const feed = document.getElementById('wishes-feed');
+            feed.style.display = 'block';
+
+            renderWishes();
+        }
+
+        function renderWishes() {
+            const listContainer = document.getElementById('wishes-list');
+            listContainer.innerHTML = '';
+
+            wishesData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'wish-item-card';
+                card.innerHTML = `
+                    <div class="wish-header">
+                        <strong>${escapeHtml(item.name)}</strong>
+                        <span class="status-badge ${item.status === 'Hadir' ? 'present' : 'absent'}">${escapeHtml(item.status)}</span>
+                    </div>
+                    <p class="wish-text">${escapeHtml(item.message)}</p>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Rahmad Syah Siregar</title>
+
+  <!-- 1. LOGO DI TAB BROWSER (FAVICON) -->
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <!-- Opsional: untuk format PNG (rekomendasi agar lebih tajam) -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- 2. PREVIEW LINK WA / SOSMED (OPEN GRAPH / OG TAGS) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://websitekamu.com/">
+  <meta property="og:title" content="Judul Website Kamu">
+  <meta property="og:description" content="Deskripsi singkat website kamu yang bakal muncul di preview WhatsApp.">
+  <meta property="og:image" content="https://websitekamu.com/gambar-preview.jpg">
+
+  <!-- Opsional: khusus Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Judul Website Kamu">
+  <meta name="twitter:description" content="Deskripsi singkat website kamu.">
+  <meta name="twitter:image" content="https://websitekamu.com/gambar-preview.jpg">
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Cyber | Web Dev & Graphic Designer</title>
+
+    <!-- Font Google, AOS Animation & FontAwesome Icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           VARIABLE & RESET
+        ========================================= */
+        :root {
+            --bg-main: #060913;
+            --bg-card: rgba(15, 23, 42, 0.65);
+            --primary-blue: #0284c7;
+            --accent-cyan: #38bdf8;
+            --neon-glow: #00f2fe;
+            --purple-accent: #8b5cf6;
+            --text-white: #f8fafc;
+            --text-gray: #94a3b8;
+            --border-glow: rgba(56, 189, 248, 0.2);
+            
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            line-height: 1.5;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow Background */
+        .bg-glow-1, .bg-glow-2 {
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.25;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-glow-1 {
+            background: var(--neon-glow);
+            top: -100px;
+            left: -100px;
+            animation: floatGlow 8s ease-in-out infinite alternate;
+        }
+
+        .bg-glow-2 {
+            background: var(--purple-accent);
+            bottom: -100px;
+            right: -100px;
+            animation: floatGlow 10s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(40px, 40px); }
+        }
+
+        /* NAVBAR WITH CUSTOM LOGO */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 8%;
+            background: rgba(6, 9, 19, 0.85);
+            backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            height: 65px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .logo span { color: var(--accent-cyan); }
+
+        nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--neon-glow);
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--primary-blue), var(--purple-accent));
+            padding: 7px 18px;
+            border-radius: 30px;
+            color: var(--text-white) !important;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+        }
+
+        /* HERO SECTION (COMPACT FIT UNTUK 1 LAYAR MONITOR) */
+        .hero-section {
+            min-height: calc(100vh - 65px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 15px;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 8% 0;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            max-width: 620px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--accent-cyan);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-glow);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 50%, var(--purple-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .role {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .desc {
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .education {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* FOTO PROFILE COMPACT */
+        .hero-profile-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-card-animated {
+            position: relative;
+            width: 240px;
+            height: 290px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px;
+            background: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .profile-card-animated::before {
+            content: '';
+            position: absolute;
+            width: 170%;
+            height: 170%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0%,
+                var(--neon-glow) 25%,
+                var(--accent-cyan) 50%,
+                var(--purple-accent) 75%,
+                transparent 100%
+            );
+            animation: rotateBorder 4s linear infinite;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-img-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 17px;
+            overflow: hidden;
+            z-index: 1;
+            background: var(--bg-main);
+        }
+
+        .profile-img-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name-tag {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .profile-name-tag h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .profile-name-tag p {
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* RUNNING TEXT (TEKS BERJALAN PAS DI PAS BROWSER DI BAWAH BERANDA) */
+        .marquee-container {
+            background: linear-gradient(90deg, #0284c7, #0f172a, #8b5cf6);
+            color: #ffffff;
+            padding: 8px 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marqueeText 24s linear infinite;
+        }
+
+        .marquee-content i { color: var(--neon-glow); margin: 0 10px; }
+
+        @keyframes marqueeText {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* COMMON SECTION & BUTTONS */
+        section { padding: 75px 8%; position: relative; }
+
+        .section-header-custom {
+            margin-bottom: 35px;
+        }
+
+        .section-header-custom h2 {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .section-header-custom p {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .btn {
+            padding: 10px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--purple-accent));
+            color: var(--text-white);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-white);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* PROJECT GRID & CARD */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border-glow);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--neon-glow);
+            box-shadow: 0 12px 25px rgba(0, 242, 254, 0.15);
+        }
+
+        .card-img-wrapper { height: 170px; overflow: hidden; }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .card-img { transform: scale(1.08); }
+
+        .card-info { padding: 20px; }
+
+        .card-info h3 { font-size: 1.1rem; margin-bottom: 8px; }
+
+        .card-info p { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 18px; }
+
+        /* SKILLS SECTION */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 28px 20px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card .icon {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+        }
+
+        .skill-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .skill-card p { font-size: 0.85rem; color: var(--text-gray); }
+
+        /* CONTACT SECTION */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
+            padding: 45px 30px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--border-glow);
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-wa { background: #25d366; color: #ffffff; }
+
+        /* MAPS / LOKASI SECTION */
+        .location-section {
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .location-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-glow);
+            padding: 25px;
+            backdrop-filter: blur(12px);
+        }
+
+        .location-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .location-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location-title i {
+            color: var(--accent-cyan);
+            font-size: 1.3rem;
+        }
+
+        .location-title h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 250px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* MODAL POPUP DISPLAY */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(6, 9, 19, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--neon-glow);
+            border-radius: 20px;
+            max-width: 750px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 25px;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+            position: relative;
+        }
+
+        .modal-img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: rgba(6, 9, 19, 0.95);
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* RESPONSIVE DESIGN (HP & TABLET) */
+        @media (max-width: 850px) {
+            header nav { display: none; }
+            .hero-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 20px;
+            }
+            .hero-section {
+                min-height: auto;
+            }
+            .hero h1 { font-size: 2.1rem; }
+            .education, .hero-btns { justify-content: center; }
+            .profile-card-animated {
+                width: 200px;
+                height: 240px;
+            }
+        }
+        /* Container Utama Menutupi Seluruh Layar (Fullscreen) */
+.full-demo-container {
+    display: none; /* Sembunyi secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 999999; /* Memastikan paling depan menutupi apapun */
+}
+
+/* Header Bar Bagian Atas */
+.full-demo-header {
+    height: 55px;
+    background-color: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid #333;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Tombol Kembali ke Portofolio */
+.btn-back-portofolio {
+    background-color: #7d8b75;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+}
+
+.btn-back-portofolio:hover {
+    background-color: #65725e;
+}
+
+.demo-title {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* Frame Undangan Full Layar */
+.full-demo-frame {
+    width: 100%;
+    height: calc(100vh - 55px); /* Memenuhi sisa layar bawah */
+    border: none;
+    display: block;
+}
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- NAVBAR WITH LOGO -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <div class="logo">SyahDesign<span>.</span></div>
+        </div>
+        <nav>
+            <a href="#hero">Beranda</a>
+            <a href="#proyek-undangan">Undangan Digital</a>
+            <a href="#proyek-desain">Desain Grafis</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#contact" class="btn-nav">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- 1. HERO SECTION (FIT 1 LAYAR DENGAN TEKS BERJALAN DI BAWAHNYA) -->
+    <section id="hero" class="hero-section" style="padding: 0;">
+        <div class="hero-container">
+            <!-- KIRI: TEKS DESKRIPSI -->
+            <div class="hero-content" data-aos="fade-right">
+                <div class="badge">
+                    <i class="fa-solid fa-graduation-cap"></i> Mahasiswa PTIK
+                </div>
+                <h1>Kreativitas & Koding <br><span class="gradient-text">Tanpa Batas.</span></h1>
+                <p class="role">Web Developer & Graphic Designer</p>
+                <p class="desc">
+Halo! Saya Rahmad Syah Siregar, <strong>Web Developer & Graphic Designer</strong> berbasis di <strong>Bukittinggi.</strong> Saya siap membantu menciptakan web undangan digital interaktif serta desain grafis yang <strong>modern, elegan, dan fungsional.</strong> </p>
+                <div class="education">
+                    <i class="fa-solid fa-university"></i> Pendidikan Teknik Informatika & Komputer (PTIK)
+                </div>
+                <div class="hero-btns">
+                    <a href="#proyek-undangan" class="btn btn-primary">Lihat Karya <i class="fa-solid fa-arrow-down"></i></a>
+                    <a href="javascript:void(0)" onclick="openWhatsApp()" class="btn btn-secondary">WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- KANAN: FOTO PROFILE DENGAN BINGKAI SINAR MUTER -->
+            <div class="hero-profile-wrapper" data-aos="fade-left">
+                <div class="profile-card-animated">
+                    <div class="profile-img-inner">
+                        <img src="WhatsApp Image 2025-11-10 at 21.38.52.jpeg" alt="Foto Profile">
+                    </div>
+                </div>
+                <div class="profile-name-tag">
+                    <h3>Rahmad Syah Siregar</h3>
+                    <p>SIBUHUAN Sumatera Utara</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEKS BERJALAN STYLE MESJID (PERSIS DI DASAR TAMPILAN BERANDA) -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <i class="fa-solid fa-bullhorn"></i> SELAMAT DATANG DI PORTOFOLIO RESMI RAHMAD SYAH SIREGAR — JASA PEMBUATAN UNDANGAN PERNIKAHAN DIGITAL & DESAIN GRAFIS — LOKASI: BUKITTINGGI, SUMATERA BARAT, INDONESIA — HUBUNGI VIA WHATSAPP / E-MAIL UNTUK PEMESANAN <i class="fa-solid fa-sparkles"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PROYEK PILIHAN 1: UNDANGAN PERNIKAHAN -->
+    <section id="proyek-undangan">
+        <div class="section-header-custom" data-aos="fade-up">
+            <h2>Proyek Pilihan</h2>
+            <p><i class="fa-solid fa-envelope-open-text"></i> Undangan Pernikahan Digital</p>
+        </div>
+
+        <div class="project-grid">
+            <div class="project-card" data-aos="fade-up">
+                <div class="card-img-wrapper">
+                    <div class="card-img" style="background-image: url('123.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <h3>Undangan Digital Mandailing Luxury Gold</h3>
+                    <p>Website undangan pernikahan interaktif bernuansa Luxury Gold & Adat Mandailing. Dilengkapi nama tamu dinamis, musik otomatis, countdown, lokasi Google Maps, serta integrasi buku tamu digital.</p>
+<button class="btn btn-primary" onclick="bukaDemoFull('Undangannikahbaru.html')">
+    Lihat Demo <i class="fa-solid fa-external-link"></i>
+</button>                
+</div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img-wrapper">
+                    <div class="card-img" style="background-image: url('Gemini_Generated_Image_ol3g5vol3g5vol3g.png');"></div>
+                </div>
+                <div class="card-info">
+                    <h3>Undangan Digital Ethnic Glamour</h3>
+                    <p>Platform undangan pernikahan berbasis web yang responsif dan interaktif. Dilengkapi musik latar, countdown, galeri foto otomatis, Google Maps, nama tamu dinamis, serta kado digital.</p>
+                  <button class="btn btn-primary" onclick="bukaDemoFull('Undanganpernikahan1.html')">
+            Lihat Demo <i class="fa-solid fa-external-link"></i>
+        </button>
+    </div>
+</div>
+
+<div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img-wrapper">
+                    <div class="card-img" style="background-image: url('3796d665-fc91-4ea4-8cba-d30d1d837f8a.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <h3>Undangan Digital Christian Batak Culture</h3>
+                    <p>Website undangan pernikahan Kristen Adat Batak Toba yang anggun dan interaktif. Dilengkapi fitur Gated RSVP (daftar ucapan terbuka setelah kirim doa), timeline perjalanan cinta (Marhusip, Martumpol), countdown timer, galeri foto lightbox, peta lokasi Google Maps, serta tombol salin rekening digital.</p>
+                  <button class="btn btn-primary" onclick="bukaDemoFull('Undangan pernikahan ala gen Z.html')">
+            Lihat Demo <i class="fa-solid fa-external-link"></i>
+        </button>
+    </div>
+</div>
+
+<div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img-wrapper">
+                    <div class="card-img" style="background-image: url('Gemini_Generated_Image_ol3g5vol3g5vol3g.png');"></div>
+                </div>
+                <div class="card-info">
+                    <h3>Undangan Digital Ethnic Glamour</h3>
+                    <p>Platform undangan pernikahan berbasis web yang responsif dan interaktif. Dilengkapi musik latar, countdown, galeri foto otomatis, Google Maps, nama tamu dinamis, serta kado digital.</p>
+                  <button class="btn btn-primary" onclick="bukaDemoFull('Undangan pernikahan ala gen Z.html')">
+            Lihat Demo <i class="fa-solid fa-external-link"></i>
+        </button>
+    </div>
+</div>
+
+
+       <!-- ========================================== -->
+<!-- 1. WADAH DEMO FULLSCREEN (TIDAK NYELIP)    -->
+<!-- ========================================== -->
+<div id="fullDemoModal" class="full-demo-container">
+    <!-- Baris Atas: Tombol Kembali -->
+    <div class="full-demo-header">
+        <button onclick="tutupDemoFull()" class="btn-back-portofolio">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Portofolio
+        </button>
+        <span class="demo-title">Live Preview Undangan</span>
+    </div>
+    
+    <!-- Tampilan Utama Undangan (Full Layar) -->
+    <iframe id="fullDemoFrame" src="" class="full-demo-frame"></iframe>
+</div>
+    </section>
+
+    <!-- 3. PROYEK PILIHAN 2: DESAIN GRAFIS -->
+    <section id="proyek-desain" style="padding-top: 0;">
+        <div class="section-header-custom" data-aos="fade-up">
+            <h2>Proyek Pilihan</h2>
+            <p><i class="fa-solid fa-palette"></i> Desain Grafis & Visual Branding</p>
+        </div>
+
+        <div class="project-grid">
+            <div class="project-card" data-aos="fade-up">
+                <div class="card-img-wrapper">
+                    <div class="card-img" style="background-image: url('Hijau Modern Minimalis Kalender Korporat (31 x 47 cm).png');"></div>
+                </div>
+                <div class="card-info">
+                    <h3>Kalender Korporat & Keluarga 2026</h3>
+                    <p>Kategori: Print Design / Calendar</p>
+                    <button class="btn btn-primary" onclick="bukaModal('Kalender Korporat & Keluarga 2026', 'Hijau Modern Minimalis Kalender Korporat (31 x 47 cm).png', 'Desain kalender dinding bertema hijau modern minimalis untuk keluarga besar Siregariyah. Dilengkapi dengan foto keluarga, penanggalan Masehi/Hijriah, serta informasi penanda hari libur nasional.')">Lihat Galeri <i class="fa-solid fa-image"></i></button>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img-wrapper">
+                    <div class="card-img" style="background-image: url('Hijau Neon Seru Modern Workshop Desain Grafis Flyer A4.png');"></div>
+                </div>
+                <div class="card-info">
+                    <h3>Poster Workshop Desain Grafis Canva</h3>
+                    <p>Kategori: Poster Design / Event Flyer</p>
+                    <button class="btn btn-primary" onclick="bukaModal('Undangan Digital Minimalist Blue', 'Hijau Neon Seru Modern Workshop Desain Grafis Flyer A4.png', 'Poster acara pelatihan desain grafis berbasis Canva dengan kombinasi warna gradasi neon biru-ungu yang seru, kreatif, dan menarik minat generasi muda.')">Lihat Galeri <i class="fa-solid fa-image"></i></button>
+                </div>
+            </div>
+        </div>
+
+         <div class="project-grid">
+            <div class="project-card" data-aos="fade-up">
+                <div class="card-img-wrapper">
+                    <div class="card-img" style="background-image: url('Oranye dan Putih Modern Webinar Bisnis Instagram Post.png');"></div>
+                </div>
+                <div class="card-info">
+                    <h3>Poster Poster & Event Pelatihan Karya Ilmiah</h3>
+                    <p>Kategori: Social Media Graphic / Event Flyer</p>
+                    <button class="btn btn-primary" onclick="bukaModal('Poster Poster & Event Pelatihan Karya Ilmiah', 'Oranye dan Putih Modern Webinar Bisnis Instagram Post.png', 'Desain pamflet digital untuk kegiatan Pelatihan Karya Ilmiah & Penulisan Makalah yang diselenggarakan oleh Gerakan Mahasiswa Padang Lawas, mengusung nuansa hijau profesional dan elegan.')">Lihat Galeri <i class="fa-solid fa-image"></i></button>
+                </div>
+            </div>
+
+         <div class="project-grid">
+            <div class="project-card" data-aos="fade-up">
+                <div class="card-img-wrapper">
+                    <div class="card-img" style="background-image: url('Red & Orange Bold Modern Player Announcement Soccer Sport Instagram Post.png');"></div>
+                </div>
+                <div class="card-info">
+                    <h3>Ucapan Selamat & Apresiasi Organisasi</h3>
+                    <p>Kategori: Social Media Design / Organization Post</p>
+                    <button class="btn btn-primary" onclick="bukaModal('Ucapan Selamat & Apresiasi Organisasi', 'Red & Orange Bold Modern Player Announcement Soccer Sport Instagram Post.png', 'Desain ucapan selamat ulang tahun (Barokallah Fi Umrik) untuk Ketua Kaderisasi GEMA PALAS dengan tata letak frame foto yang tegas, dinamis, dan modern.')">Lihat Galeri <i class="fa-solid fa-image"></i></button>
+                </div>
+            </div>
+
+    </section>
+
+    <!-- 4. SKILLS SECTION -->
+    <section id="skills">
+        <div class="section-header-custom" data-aos="fade-up">
+            <h2>Keahlian & <span>Tools</span></h2>
+            <p><i class="fa-solid fa-gears"></i> Workflow Kerja</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up">
+                <i class="fa-solid fa-code icon"></i>
+                <h3>Web Development</h3>
+                <p>Membangun struktur dan tampilan web interaktif khusus undangan pernikahan online.</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-wand-magic-sparkles icon"></i>
+                <h3>Desain Grafis</h3>
+                <p>Pembuatan aset visual, spanduk, banner, dan desain promosi usaha/acara.</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-microchip icon"></i>
+                <h3>AI Assistant & Workflow</h3>
+                <p>Efisiensi koding dan perancangan ide menggunakan VS Code serta AI Tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CONTACT & LOCATION SECTION -->
+    <section id="contact">
+        <!-- KONTAK BOX -->
+        <div class="contact-box" data-aos="zoom-in">
+            <h2>Ingin Buat Undangan atau Desain?</h2>
+            <p>Konsultasikan kebutuhan website atau visualmu secara langsung dari Bukittinggi. Kirim pesan WhatsApp otomatis sekarang!</p>
+            <div class="contact-buttons">
+                <button class="btn btn-wa" onclick="openWhatsApp()">
+                    <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp Otomatis
+                </button>
+                <button class="btn btn-primary" onclick="openEmail()">
+               <i class="fa-solid fa-envelope"></i> Kirim Email
+            </button>
+            </div>
+        </div>
+
+        <!-- LOKASI MAPS INTERAKTIF DI BAWAH KONTEN KONTAK -->
+        <div class="location-section" data-aos="fade-up">
+            <div class="location-card">
+                <div class="location-header">
+                    <div class="location-title">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h3>Lokasi Operasional</h3>
+                            <h5>Saat Ini</h5>
+                            <p style="font-size: 0.85rem; color: var(--text-gray);">Bukittinggi, Sumatera Barat, Indonesia</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Bukittinggi,+West+Sumatra" target="_blank" class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 14px;">
+                        Buka di Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <!-- FRAME MAPS GOOGLE (BUKITTINGGI) -->
+                <div class="map-frame">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6644153075845!2d100.36643267425178!3d-0.3052210352528148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd5389632832801%3A0x6739bc34839556d!2sBukittinggi%2C%20West%20Sumatra!5e0!3m2!1sen!2sid!4v1710000000000!5m2!1sen!2sid" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 [Rahmad Syah Siregar] — Mahasiswa PTIK Bukittinggi. All rights reserved.</p>
+    </footer>
+
+    <!-- MODAL POPUP -->
+    <div class="modal-overlay" id="customModal">
+        <div class="modal-content">
+            <h2 id="modalTitle" style="color: var(--accent-cyan);">Judul Proyek</h2>
+            <img id="modalImage" class="modal-img" src="" alt="Pratinjau Karya">
+            <p id="modalDesc" style="color: var(--text-gray); font-size: 0.9rem; line-height: 1.6;"></p>
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="btn btn-secondary" onclick="tutupModal()"><i class="fa-solid fa-arrow-left"></i> Kembali ke Portofolio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        function openWhatsApp() {
+            var nomorWA = "6281234567890"; // Ganti dengan nomor WA kamu
+            var pesanOtomatis = encodeURIComponent("Halo! Saya melihat portofolio Anda dan tertarik untuk berkonsultasi mengenai jasa pembuatan website undangan pernikahan / desain grafis.");
+            window.open("https://wa.me/" + nomorWA + "?text=" + pesanOtomatis, "_blank");
+        }
+
+        function bukaModal(judul, urlGambar, deskripsi) {
+            document.getElementById('modalTitle').innerText = judul;
+            document.getElementById('modalImage').src = urlGambar;
+            document.getElementById('modalDesc').innerText = deskripsi;
+            document.getElementById('customModal').style.display = 'flex';
+        }
+
+        function tutupModal() {
+            document.getElementById('customModal').style.display = 'none';
+        }
+    </script>
+    <script>
+  function openWhatsApp() {
+    // 1. Ganti dengan nomor WhatsApp kamu (Gunakan format 62, TANPA angka 0, spasi, atau tanda +)
+    const nomorWA = "6282162757915"; 
+
+    // 2. Tulis pesan otomatis yang ingin langsung terketik saat dibuka (Opsional)
+    const pesan = "Halo Rahmad Syah Siregar, saya tertarik untuk menggunakan jasa Anda !";
+
+    // 3. Gabungkan menjadi URL link WhatsApp
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+
+    // 4. Buka link di tab baru
+    window.open(url, '_blank');
+  }
+  function openEmail() {
+  // 1. Alamat email kamu
+  const emailTujuan = "rahmatsyahsiregar80@gmail.com";
+  
+  // 2. Subjek / Judul Email Otomatis
+  const subjek = "Tanya Jasa Desain - Portofolio";
+  
+  // 3. Isi Pesan Otomatis (Sama seperti WA)
+  const pesan = "Halo Rahmad Syah Siregar, saya tertarik untuk menggunakan jasa Anda!";
+
+  // 4. Buat link Gmail Web otomatis
+  const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTujuan}&su=${encodeURIComponent(subjek)}&body=${encodeURIComponent(pesan)}`;
+
+  // 5. Buka Gmail Web di tab baru
+  window.open(url, '_blank');
+// ==========================================
+// 2. FUNGSI JAVASCRIPT PERBAIKAN
+// ==========================================
+  }
+function bukaDemoFull(urlFile) {
+    // 1. Masukkan file undangan ke frame
+    document.getElementById('fullDemoFrame').src = urlFile;
+    
+    // 2. Munculkan layar fullscreen (ID SUDAH DISAMAKAN: fullDemoModal)
+    document.getElementById('fullDemoModal').style.display = 'block';
+    
+    // 3. Matikan scroll web portofolio di belakangnya
+    document.body.style.overflow = 'hidden';
+}
+
+function tutupDemoFull() {
+    // 1. Sembunyikan layar fullscreen (ID SUDAH DISAMAKAN: fullDemoModal)
+    document.getElementById('fullDemoModal').style.display = 'none';
+    
+    // 2. Reset frame agar musik/efek di undangan mati
+    document.getElementById('fullDemoFrame').src = '';
+    
+    // 3. Hidupkan kembali scroll web portofolio
+    document.body.style.overflow = 'auto';
+}
+</script>
+</body>
+</html>

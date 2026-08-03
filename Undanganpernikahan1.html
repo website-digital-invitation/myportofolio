@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Tanti & Isnan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&family=Great+Vibes&family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #3a0101;
+            --gold: #D4AF37;
+            --dark: #050505;
+            --white: #ffffff;
+            --glass: rgba(0, 0, 0, 0.75);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--dark);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Background Global */
+        .bg-fixed {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center;
+            filter: blur(3px); transform: scale(1.1); z-index: -2;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            visibility: hidden;
+            transition: all 2s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        /* Bunga Jatuh */
+        #flower-container { position: fixed; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99; }
+        .flower { position: absolute; color: var(--gold); opacity: 0.4; animation: fall linear infinite; }
+        @keyframes fall { 100% { transform: translateY(110vh) rotate(360deg); } }
+
+        /* Elegant Box */
+        .elegant-box {
+            background: var(--glass);
+            border: 1.5px solid var(--gold);
+            padding: 35px 20px;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 20px;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            text-align: center;
+        }
+
+        /* Typography */
+        .hero-title {
+            font-family: 'Cinzel', serif; color: var(--gold); 
+            font-size: 1.4rem; letter-spacing: 5px; font-weight: bold;
+            padding-top: 60px; text-align: center; margin-bottom: 10px;
+        }
+        .groom-name, .bride-name { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--white); }
+        .ampersand { color: var(--gold); font-size: 1.8rem; margin: 5px 0; display: block; }
+        .section-title { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.3rem; margin-bottom: 20px; letter-spacing: 2px; }
+
+        /* Galeri */
+        .slider-wrapper { width: 100%; overflow: hidden; margin-top: 10px; }
+        .slider-track { display: flex; gap: 15px; width: max-content; animation: infiniteScroll 30s linear infinite; }
+        .slider-track:hover { animation-play-state: paused; }
+        .slide-group { width: 180px; display: flex; flex-direction: column; gap: 10px; }
+        .slide-group img { width: 100%; height: 150px; object-fit: cover; border: 1.5px solid var(--gold); border-radius: 10px; }
+        @keyframes infiniteScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Turut Mengundang Scroll */
+        .invite-container { text-align: left; font-size: 0.85rem; }
+        .family-header { color: var(--gold); font-weight: bold; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; border-left: 3px solid var(--gold); padding-left: 10px; font-family: 'Cinzel', serif; }
+        .invite-item { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px dashed rgba(212, 175, 55, 0.2); padding: 6px 0; }
+        .invite-name { padding-right: 15px; flex: 1; line-height: 1.4; }
+        .invite-status { font-style: italic; color: var(--gold); white-space: nowrap; font-size: 0.72rem; font-weight: 600; }
+        .scroll-area::-webkit-scrollbar { width: 4px; }
+        .scroll-area::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* Music & Prokes */
+        .prokes-flex { display: flex; justify-content: space-around; margin-top: 20px; }
+        .prokes-flex div { font-size: 0.7rem; color: var(--gold); }
+        .prokes-flex i { font-size: 1.6rem; margin-bottom: 5px; display: block; }
+        #music-btn {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+            background: var(--gold); color: var(--maroon); width: 45px; height: 45px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            display: none; /* Muncul setelah undangan dibuka */
+        }
+        .footer-info {
+            background: rgba(0, 0, 0, 0.9); padding: 40px 20px;
+            font-size: 0.7rem; color: #999999; text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Style Sampul */
+        #cover-invitation {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--dark); z-index: 2000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center;
+            transition: transform 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cover-invitation">
+        <div class="tudung-adat" style="margin-bottom: 20px;">
+            <img src="Bulang-mandailing-angkola (1).png" alt="Tudung Adat Batak" style="width:170px; height:auto;">
+        </div>
+        <p style="font-family: 'Great Vibes', cursive; letter-spacing: 2px; font-size: 2rem; margin-bottom: 10px; color: var(--gold);">
+    Undangan Pernikahan        
+    <h1 style="font-family: 'Great Vibes'; font-size: 2.8rem; margin-bottom: 30px;">Tanti & Isnan</h1>
+        
+        <div class="elegant-box" style="margin: 0; background: rgba(0,0,0,0.6);">
+            <p style="font-size: 0.8rem; margin-bottom: 10px;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <h2 id="guest-name" style="font-family: 'Cinzel'; color: var(--gold); font-size: 1.4rem;">Tamu Undangan</h2>
+            <p style="font-size: 0.7rem; margin-top: 10px;">Di Tempat</p>
+        </div>
+
+        <button onclick="bukaUndangan()" style="margin-top: 30px; background: var(--gold); color: var(--maroon); border: none; padding: 12px 35px; border-radius: 30px; font-weight: bold; cursor: pointer; letter-spacing: 2px; box-shadow: 0 5px 15px rgba(212,175,55,0.4);">
+            <i class="fas fa-envelope-open-text"></i> BUKA UNDANGAN
+        </button>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <div class="bg-fixed"></div>
+        <div id="flower-container"></div>
+
+        <audio id="mySong" loop><source src="ssstik.io_1773761467717.mp3"></audio>
+        <div id="music-btn" onclick="toggleMusic()"><i id="music-icon" class="fas fa-music"></i></div>
+
+<p class="hero-title reveal" style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; letter-spacing: 2px;">Undangan Pernikahan</p>
+        <div class="elegant-box reveal">
+            <h2 class="groom-name">Tanti Khairani Siregar</h2>
+            <span class="ampersand">&</span>
+            <h2 class="bride-name">Isnan Rosidi Harahap</h2>
+            <div style="height: 1px; background: var(--gold); margin: 20px auto; width: 60%;"></div>
+            <div style="display: flex; justify-content: space-around;">
+                <div><h3 id="days">000</h3><p style="font-size: 0.6rem;">Hari</p></div>
+                <div><h3 id="hours">00</h3><p style="font-size: 0.6rem;">Jam</p></div>
+                <div><h3 id="mins">00</h3><p style="font-size: 0.6rem;">Menit</p></div>
+                <div><h3 id="secs">00</h3><p style="font-size: 0.6rem;">Detik</p></div>
+            </div>
+        </div>
+
+        <div class="elegant-box reveal">
+            <div style="font-family: 'Amiri', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 10px;">
+                وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا
+            </div>
+            <p style="font-size: 0.8rem; font-style: italic;">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram (sakinah) kepadanya."</p>
+            <p style="font-size: 0.85rem; line-height: 2;">(Al-Qur'an Surah Ar-Rum: 21)</p>
+        </div>
+
+        <div class="elegant-box reveal">
+            <h2 class="section-title">Cerita Singkat</h2>
+            <p style="font-size: 0.85rem; line-height: 1.8;">
+                "Dua jiwa, satu janji. Berawal dari pertemuan yang tak terduga, kami melangkah dengan doa menuju ridho-Nya dan restu orang tua."
+            </p>
+        </div>
+
+        <div class="elegant-box reveal">
+            <h2 class="section-title">Lokasi Acara</h2>
+            <p><strong>Sabtu, 21 Maret 2026</strong></p>
+            <p>Desa Siolip, Kec. Barumun Baru, Sibuhuan</p>
+            <div style="border: 1.5px solid var(--gold); border-radius: 12px; margin: 20px 0; overflow: hidden; height: 200px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.818!2d99.0!3d1.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMDAnMDAuMCJOIDk5wrAwMCcwMC4wIkU!5e0!3m2!1sid!2sid!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div style="margin-top: 10px;">
+                <a href="https://maps.app.goo.gl/dCdGR8LdSZy557sJ8" target="_blank" style="display: inline-block; background: var(--gold); color: var(--maroon); padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem;">
+                    <i class="fas fa-directions"></i> PETUNJUK LOKASI (GPS)
+                </a>
+            </div>
+        </div>
+
+        <div class="elegant-box reveal" style="overflow: hidden;">
+            <h2 class="section-title">Galeri</h2>
+            <div class="slider-wrapper">
+                <div class="slider-track">
+                    <div class="slide-group">
+                        <img src="https://plus.unsplash.com/premium_photo-1675719847698-6c8a924b2a7a?w=600&auto=format&fit=crop&q=60">
+                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&auto=format&fit=crop&q=60">
+                    </div>
+                    <div class="slide-group">
+                        <img src="https://images.unsplash.com/photo-1677677402907-05f2883e3f66?w=600&auto=format&fit=crop&q=60">
+                        <img src="https://images.unsplash.com/photo-1636005429095-3547c4817f78?w=600&auto=format&fit=crop&q=60">
+                    </div>
+                    <div class="slide-group">
+                        <img src="https://images.unsplash.com/photo-1700601589928-8937ebf649fa?w=600&auto=format&fit=crop&q=60">
+                        <img src="https://images.unsplash.com/photo-1616127059194-92bd771bf229?w=600&auto=format&fit=crop&q=60">
+                    </div>
+                    <div class="slide-group">
+                        <img src="https://plus.unsplash.com/premium_photo-1679952778646-7e4d101cc87c?w=600&auto=format&fit=crop&q=60">
+                        <img src="https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg?w=600&auto=format&fit=crop&q=60">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elegant-box reveal">
+            <h2 class="section-title">Amplop Digital</h2>
+            <p>BSI: <span id="nomor-rek">0123456789</span></p>
+            <p>a.n. NAMA KAMU</p>
+            <br>
+            <button onclick="salinNomor()" style="background: var(--gold); border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; color: #3a0101;">
+                <i class="fas fa-copy"></i> SALIN REKENING
+            </button>
+        </div>
+
+        <div class="elegant-box reveal">
+            <h2 class="section-title">Turut Mengundang</h2>
+            <div class="invite-container">
+                <div style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid rgba(212, 175, 55, 0.3);">
+                    <p class="family-header">KELUARGA BESAR PIHAK WANITA</p>
+                    <div class="invite-item"><span class="invite-name">Mhd. Soleh Siregar</span> <span class="invite-status">(Ayah)</span></div>
+                    <div class="invite-item"><span class="invite-name">Rosdiana Daulay</span> <span class="invite-status">(Ibu)</span></div>
+                    <div style="height: 15px;"></div> 
+                    <p class="family-header">KELUARGA BESAR PIHAK LELAKI</p>
+                    <div class="invite-item"><span class="invite-name">Alm. Solahuddin Hrp</span> <span class="invite-status">(Ayah)</span></div>
+                    <div class="invite-item"><span class="invite-name">Nur Hawani Siregar</span> <span class="invite-status">(Ibu)</span></div>
+                </div>
+                <p style="font-size: 0.7rem; color: var(--gold); margin-bottom: 8px; font-weight: bold;">BESERTA KELUARGA:</p>
+                <div class="scroll-area" style="max-height: 220px; overflow-y: auto; padding-right: 8px; background: rgba(255,255,255,0.02); border-radius: 8px; padding: 10px;">
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div class="invite-item"><span class="invite-name">1. Amnil Wahidah Siregar, S.Pd / Usman Saleh Hsb, S.Sos</span> <span class="invite-status">(Kakak/Abang)</span></div>
+                        <div class="invite-item"><span class="invite-name">2. Ali Sunardi Siregar</span> <span class="invite-status">(Adek)</span></div>
+                        <div class="invite-item"><span class="invite-name">3. Rahmad Syah Siregar</span> <span class="invite-status">(Adek)</span></div>
+                        <div class="invite-item"><span class="invite-name">4. Asriani Siregar</span> <span class="invite-status">(Adek)</span></div>
+                        <div class="invite-item"><span class="invite-name">5. Juma Siregar / Alm. Aziz Hasibuan</span> <span class="invite-status">(Bou/Amangboru)</span></div>
+                        <div class="invite-item"><span class="invite-name">6. Gurbas Siregar / Alm. Alam Martua</span> <span class="invite-status">(Bou/Amangboru)</span></div>
+                        <div class="invite-item"><span class="invite-name">7. Masniari Siregar / Hilal Hasibuan</span> <span class="invite-status">(Bou/Amangboru)</span></div>
+                        <div class="invite-item"><span class="invite-name">8. Ali Kahar Siregar / Surto Hasibuan</span> <span class="invite-status">(Kakek/Nenek)</span></div>
+                        <div class="invite-item"><span class="invite-name">9. Saripuddin Siregar / Tiesma Siregar</span> <span class="invite-status">(Uwak)</span></div>
+                        <div class="invite-item"><span class="invite-name">10. Parhimpunan Siregar / Nur Sama Hsb</span> <span class="invite-status">(Uwak)</span></div>
+                        <div class="invite-item"><span class="invite-name">11. Pandapotan Siregar / Purnama Hrp</span> <span class="invite-status">(Uda/Nanguda)</span></div>
+                        <div class="invite-item"><span class="invite-name">12. Torkis Siregar / Masnita Nora Nst</span> <span class="invite-status">(Uda/Nanguda)</span></div>
+                        <div class="invite-item"><span class="invite-name">13. Mardan Siregar / Junaida Hsb</span> <span class="invite-status">(Abang/Kakak)</span></div>
+                        <div class="invite-item"><span class="invite-name">14. Dori Daulay</span> <span class="invite-status">(Uwak)</span></div>
+                        <div class="invite-item"><span class="invite-name">15. Burhan Hasibuan / Lanna Sari</span> <span class="invite-status">(Amangboru/Bou)</span></div>
+                        <div class="invite-item"><span class="invite-name">16. Aman Sukri Hsb</span> <span class="invite-status">(Abang/Kakak)</span></div>
+                        <div class="invite-item"><span class="invite-name">17. Ishak Hrp / Nurzanna Nst</span> <span class="invite-status">(Amangboru/Bou)</span></div>
+                        <div class="invite-item"><span class="invite-name">18. Usman Hasibuan</span> <span class="invite-status">(Abang/Kakak)</span></div>
+                        <div class="invite-item"><span class="invite-name">19. Darwin Hrp</span> <span class="invite-status">(Abang)</span></div>
+                        <div class="invite-item"><span class="invite-name">20. Kholid Nst / Purnami</span> <span class="invite-status">(Tulang/Nattulang)</span></div>
+                        <div class="invite-item"><span class="invite-name">21. H. Sahut Nst / Hj. Madalia</span> <span class="invite-status">(Tulang/Nattulang)</span></div>
+                        <div class="invite-item"><span class="invite-name">22. Saparuddin Nasution</span> <span class="invite-status">(Tulang)</span></div>
+                        <div class="invite-item"><span class="invite-name">23. Pahlawan</span> <span class="invite-status">(Oppung)</span></div>
+                        <div class="invite-item"><span class="invite-name">24. Tayaman Dly / Dahlia Hsb</span> <span class="invite-status">(Tulang/Nattulang)</span></div>
+                        <div class="invite-item"><span class="invite-name">25. Doharni Dly / Alm. Mas</span> <span class="invite-status">(Tobang/Ayatobang)</span></div>
+                        <div class="invite-item"><span class="invite-name">26. Nurjannah</span> <span class="invite-status">(Tobang)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elegant-box reveal">
+            <h2 class="section-title">Protokol Kesehatan</h2>
+            <div class="prokes-flex">
+                <div><i class="fas fa-mask"></i>Masker</div>
+                <div><i class="fas fa-hands-wash"></i>Cuci Tangan</div>
+                <div><i class="fas fa-people-arrows"></i>Jaga Jarak</div>
+            </div>
+            <div style="margin-top: 40px;">
+                <p style="font-size: 0.8rem; line-height: 1.6;">"Adalah suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir untuk memberikan doa restu."</p>
+                <h2 style="font-family: 'Great Vibes'; color: var(--gold); font-size: 2.8rem; margin-top: 20px;">Terima Kasih</h2>
+                <p style="font-weight: bold; letter-spacing: 3px; margin-top: 10px;">HORAS! HORAS! HORAS!</p>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <p>© 2026 Wedding Digital Invitation</p>
+            <p>Developed by: <strong>Rahmadsyah Siregar</strong></p>
+            <p>WhatsApp: 0821-6275-7915 | Email: rahmatsyahsiregar80@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Fungsi Ambil Nama Tamu dari Link (?to=Nama)
+        function getGuestName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nama = urlParams.get('to');
+            if (nama) {
+                document.getElementById('guest-name').innerText = nama.replace(/[+|_]/g, ' ');
+            }
+        }
+
+        // 2. Fungsi Buka Undangan
+        function bukaUndangan() {
+            // Animasi geser sampul ke atas
+            const cover = document.getElementById('cover-invitation');
+            cover.style.transform = 'translateY(-100%)';
+            
+            // Tampilkan isi dan music button
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('music-btn').style.display = 'flex';
+            
+            // Putar musik otomatis
+            const song = document.getElementById('mySong');
+            song.play();
+            
+            // Jalankan fungsi reveal
+            setTimeout(reveal, 500);
+        }
+
+        // 3. Reveal Animation on Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+
+        // 4. Music Toggle
+        function toggleMusic() {
+            const s = document.getElementById('mySong');
+            const icon = document.getElementById('music-icon');
+            if(s.paused) {
+                s.play();
+                icon.classList.replace('fa-pause', 'fa-music');
+            } else {
+                s.pause();
+                icon.classList.replace('fa-music', 'fa-pause');
+            }
+        }
+
+        // 5. Countdown
+        const target = new Date("December 30, 2026 09:00:00").getTime();
+        setInterval(() => {
+            const gap = target - new Date().getTime();
+            if(gap > 0) {
+                document.getElementById('days').innerText = Math.floor(gap / (1000*60*60*24));
+                document.getElementById('hours').innerText = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
+                document.getElementById('mins').innerText = Math.floor((gap % (1000*60*60)) / (1000*60));
+                document.getElementById('secs').innerText = Math.floor((gap % (1000*60)) / 1000);
+            }
+        }, 1000);
+
+        // 6. Bunga Jatuh
+        setInterval(() => {
+            const f = document.createElement('div');
+            f.classList.add('flower'); f.innerHTML = '✿';
+            const isLeft = Math.random() > 0.5;
+            f.style.left = isLeft ? (Math.random() * 15) + 'vw' : (85 + Math.random() * 15) + 'vw';
+            f.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            f.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.getElementById('flower-container').appendChild(f);
+            setTimeout(() => f.remove(), 5000);
+        }, 400);
+
+        // 7. Salin Nomor Rekening
+        function salinNomor() {
+            var nomor = document.getElementById("nomor-rek").innerText;
+            navigator.clipboard.writeText(nomor).then(function() {
+                alert("Nomor Rekening " + nomor + " Berhasil Disalin!");
+            }, function(err) {
+                console.error('Gagal menyalin: ', err);
+            });
+        }
+
+        // Inisialisasi Nama Tamu saat Halaman Dimuat
+        window.onload = getGuestName;
+    </script>
+</body>
+</html>
