@@ -400,69 +400,46 @@
             color: var(--accent-cyan);
         }
 
-        /* PROJECT GRID & CARD */
-      /* Container Utama Grid: Memaksa kolom selalu rapi & seragam */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
-    align-items: stretch;
-}
+     /* PROJECT GRID & CARD */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-/* Kartu Portofolio */
-.project-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #0f172a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border-glow);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+        }
 
-/* Pembungkus Gambar: Mengunci rasio KOTAK (1:1) */
-.card-img-wrapper {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* Mengunci rasio kotak sempurna */
-    height: 220px;       /* Batas tinggi pasti di laptop */
-    overflow: hidden;
-    position: relative;
-}
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--neon-glow);
+            box-shadow: 0 12px 25px rgba(0, 242, 254, 0.15);
+        }
 
-/* Pengaturan Gambar Preview Front-end */
-.card-img {
-    width: 100%;
-    height: 100%;
-    background-size: cover;      /* Memotong gambar dengan rapi agar pas di kotak */
-    background-position: top center; /* Fokus ambil area atas gambar */
-    background-repeat: no-repeat;
-}
+        .card-img-wrapper { height: 170px; overflow: hidden; }
 
-/* Konten Teks dan Tombol */
-.card-info {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
+        .card-img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
 
-.card-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
+        .project-card:hover .card-img { transform: scale(1.08); }
 
-.card-info p {
-    font-size: 0.85rem;
-    color: #94a3b8;
-    margin-bottom: 16px;
-}
+        .card-info { padding: 20px; }
 
-.card-info button {
-    margin-top: auto; /* Memaksa tombol sejajar paling bawah */
-    align-self: flex-start;
-}
+        .card-info h3 { font-size: 1.1rem; margin-bottom: 8px; }
 
+        .card-info p { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 18px; }
+        
         /* SKILLS SECTION */
         .skills-grid {
             display: grid;
