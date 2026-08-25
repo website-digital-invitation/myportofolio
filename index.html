@@ -401,12 +401,11 @@
         }
 
         /* PROJECT GRID & CARD */
-        /* Container Utama Grid */
+      /* Container Utama Grid: Memaksa kolom selalu rapi & seragam */
 .project-grid {
     display: grid;
-    /* Membuat kolom sejajar rapi 3 kolom di laptop (atau menyesuaikan responsif) */
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
     align-items: stretch;
 }
 
@@ -417,28 +416,29 @@
     height: 100%;
     border-radius: 16px;
     overflow: hidden;
-    background: #0f172a; /* Warna latar kartu kamu */
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Kunci Tinggi Gambar Agar Tidak Anjlok/Membesar */
+/* Pembungkus Gambar: Mengunci rasio KOTAK (1:1) */
 .card-img-wrapper {
     width: 100%;
-    height: 200px; /* Mengunci tinggi wadah gambar secara pasti */
+    aspect-ratio: 1 / 1; /* Mengunci rasio kotak sempurna */
+    height: 220px;       /* Batas tinggi pasti di laptop */
     overflow: hidden;
     position: relative;
 }
 
-/* Pengaturan Gambar */
+/* Pengaturan Gambar Preview Front-end */
 .card-img {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    background-size: cover;      /* Memotong gambar dengan rapi agar pas di kotak */
+    background-position: top center; /* Fokus ambil area atas gambar */
     background-repeat: no-repeat;
 }
 
-/* Area Teks dan Tombol */
+/* Konten Teks dan Tombol */
 .card-info {
     padding: 20px;
     display: flex;
@@ -449,16 +449,17 @@
 .card-info h3 {
     font-size: 1.1rem;
     margin-bottom: 8px;
+    line-height: 1.4;
 }
 
 .card-info p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #94a3b8;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .card-info button {
-    margin-top: auto; /* Mendorong tombol selalu rata di paling bawah */
+    margin-top: auto; /* Memaksa tombol sejajar paling bawah */
     align-self: flex-start;
 }
 
