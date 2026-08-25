@@ -401,44 +401,66 @@
         }
 
         /* PROJECT GRID & CARD */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+        /* Container Utama Grid */
+.project-grid {
+    display: grid;
+    /* Membuat kolom sejajar rapi 3 kolom di laptop (atau menyesuaikan responsif) */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    align-items: stretch;
+}
 
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid var(--border-glow);
-            backdrop-filter: blur(12px);
-            transition: all 0.4s ease;
-        }
+/* Kartu Portofolio */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0f172a; /* Warna latar kartu kamu */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--neon-glow);
-            box-shadow: 0 12px 25px rgba(0, 242, 254, 0.15);
-        }
+/* Kunci Tinggi Gambar Agar Tidak Anjlok/Membesar */
+.card-img-wrapper {
+    width: 100%;
+    height: 200px; /* Mengunci tinggi wadah gambar secara pasti */
+    overflow: hidden;
+    position: relative;
+}
 
-        .card-img-wrapper { height: 170px; overflow: hidden; }
+/* Pengaturan Gambar */
+.card-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-        .card-img {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s ease;
-        }
+/* Area Teks dan Tombol */
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 
-        .project-card:hover .card-img { transform: scale(1.08); }
+.card-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
 
-        .card-info { padding: 20px; }
+.card-info p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
 
-        .card-info h3 { font-size: 1.1rem; margin-bottom: 8px; }
-
-        .card-info p { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 18px; }
+.card-info button {
+    margin-top: auto; /* Mendorong tombol selalu rata di paling bawah */
+    align-self: flex-start;
+}
 
         /* SKILLS SECTION */
         .skills-grid {
